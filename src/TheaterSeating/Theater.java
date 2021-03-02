@@ -58,11 +58,12 @@ public class Theater {
 	  //When the seats are not available in the same row, allot the seats in different rows in the
 	    // decreasing order
 	    if (fillingSeatNumbers.isEmpty()) {
+	    	
+	    	//sorting according to the  maximum empty rows 
 	    	sortedDivisionList = rows.stream().filter(row -> row.getRowName() % 2 != 0)
 	              .collect(Collectors.toList());
 	      
-	     
-	      Collections.sort(sortedDivisionList, (a, b) -> b.getEmptySeats() - a.getEmptySeats());
+	    	Collections.sort(sortedDivisionList, (a, b) -> b.getEmptySeats() - a.getEmptySeats());
 	      
 	     
 	      int m = 0;
