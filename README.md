@@ -1,35 +1,31 @@
 #ProblemStatement:
 
-Need to reserve seats for movie theater as per the request and this algorithm is given preference to customer satisfaction and  customer safety while reserving the seats
+This application is used to to reserve seats for movie theater as per the request and this algorithm is giving preference to customer satisfaction and  customer safety while reserving the seats
 
 #Classes:
-This algorithm have 3 classes mainly:
+This algorithm have 5 classes mainly:
 
-1. Theater:To specify rows and columns of a Theater
-#Methods in Theater:
-This have constructor to initialize rows and columns
-This also have printTheater method which shows how many seats are booked with the reservationIdentifier and the seats which cant be booked is represented as "xxxx"
-Another Method fillSeats method which checks if the given order(reservationIdentifier numberOfSeats)/(R001 12) is valid or not.If this is valid then it checks if the order can be filled in a single row if it cannot it checks for can it split up and complete the order.
+1. TheaterSeatingApplication:This is our main class.
+#Methods in TheaterSeatingApplication:
+Here we have written methods to read input file and to write to the output file.
+We also have a main method which calls the main function to make reservations.
 
-2. SingleRow:This particular class is having the statistics of a single row and it fills the seats according to this statistics
-#Methods in SingleRow
-Here constructor is initialised with name,emptyseats
-Have bookSeats method so this will check if there are any empty seats it will reserve the requested seats and it make next 3 seats unavailable for booking for customer safety.
+2. SingleRow: This class contains variables like rownumber, capacity, remaining, startingpos
+3. Screen: This class contains list of Singlerows.
+4. SeatFilling: This class contains our main functionality to make reservations according to the availability.
+5. Reservation: This class contains input id, count and output fields. This class is used to read the input in to id and count fields and writes output in the output field. This class also contains necessary getters and setters.
 
-3. Driver:this is main program
-This is the main program it takes file path as argument and books the seats in theater and the status of order is appended to output file and returns the output file path.
-
-#TheaterTestClass:
+#SeatFillingTestClass:
 This have different scenarios JUnit testcases.
 
 #Assumptions:
 1. seats will be booked on first come first serve basis.
-2. So customer satisfaction attribute I have taken the assumption of customers prefer the seats far away from the screen and my screens farthest row is "A" and the nearest row to screen is 'I'
+2. So customer satisfaction attribute I have taken the assumption of customers prefer the seats far away from the screen and my screens farthest row is "A" and the nearest row to screen is 'J'
 3. So first seats are booked in a single row if enough empty seats are present, if there aren't enough seats will check for maximum empty seats in a row and will be filled first
-4. Not booking seats more than a single row seats ,if the booking request exceeds 20 then they need to contact customer service .
-5. after a order is booked, next 3 seats will be blocked and the next row will be blocked for customer safety.
+4. Maximum limit for bookings is 20 seats if it exceeds we show error message.
+5. after a order is booked, next 3 seats will be blocked for customer safety. If the next request can accomodate seats in the same row then we use that row to fill first.
 
 #How to Run
 have executable Runnable jar file
-java -jar walmart.jar "inputpath"
+java -jar TheatreSeating.jar "inputpath"
 prints the output path
