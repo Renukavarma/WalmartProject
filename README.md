@@ -23,7 +23,7 @@ This have different scenarios JUnit testcases.
 2. So customer satisfaction attribute I have taken the assumption of customers prefer the seats far away from the screen and my screens farthest row is "A" and the nearest row to screen is 'J'
 3. So first seats are booked in a single row if enough empty seats are present, if there aren't enough seats will check for maximum empty seats in a row and will be filled first
 4. Maximum limit for bookings is 20 seats if it exceeds we show error message.
-5. after a order is booked, next 3 seats will be blocked for customer safety. If the next request can accomodate seats in the same row then we use that row to fill first.
+5. after a order is booked, next 3 seats will be blocked for customer safety. If the next request can accomodate seats in the same row then we use that row to fill first otherwise we will try using new row.
 
 #How to Run
 have executable Runnable jar file
